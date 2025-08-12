@@ -5,7 +5,6 @@ src/Config/Paint\ Data\ Generation.json
 .DS_Store
 *.xml
 *.iml
-*.csv
 src/Demo/
 .idea/
 *.jar
