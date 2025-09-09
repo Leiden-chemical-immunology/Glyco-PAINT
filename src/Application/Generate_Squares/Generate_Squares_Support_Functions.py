@@ -372,7 +372,6 @@ def read_tracks_of_experiment(experiment_path: str) -> pd.DataFrame:
         return pd.DataFrame(columns=['Square Nr', 'Label Nr'])
 
 
-
 def read_recordings_of_experiment(experiment_path: str) -> pd.DataFrame:
     """
     Read the All Recordings file for an Experiment
