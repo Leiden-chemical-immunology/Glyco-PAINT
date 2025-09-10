@@ -152,7 +152,7 @@ Below is an example of a fully specified Experiment Info file, containing values
 The TrackMate plugin in Fiji analyses recordings, detects spots, and connects them to form tracks where possible. The Experiment Info 'Threshold' parameter determines spot detection sensitivity and is inherited from TrackMate (see the TrackMate manual for a detailed description). A low threshold value detects even poorly defined spots, while a high threshold value ignores poorly defined spots. However, processing takes a long time with more than 1,000,000 spots and doesn't yield usable results for our data and hardware. Therefore, we typically use a value of 5, 10, or 15. For new applications, it's recommended to test spot detection quality using the original TrackMate plugin. To start the 'Run TrackMate' procedure, select the Glyco-PAINT section from the top-level menu and click 'Run TrackMate'.
 
 <p align="center">
-<img src="./Images/trackmate_menu.png" width="600"><br>
+<img src="./Images/trackmate_menu_2.png" width="600"><br>
 </p>
 
 
