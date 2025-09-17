@@ -89,7 +89,7 @@ class RecordingViewer:
         self.setup_key_bindings()
 
         # Set the custom icon for the main window
-        root.iconbitmap('../Images/Paint1.png')
+        root.iconbitmap('../Images/Paint.png')
 
     def setup_heatmap(self):
 
