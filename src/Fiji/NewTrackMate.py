@@ -302,9 +302,18 @@ def execute_trackmate_in_Fiji(
         csvwriter = csv.writer(csvfile)
         csvwriter.writerow(fields)
 
+    with open(tracks_filename, open_attribute) as csvfile:
+
+        csvwriter = csv.writer(csvfile)
+        csvwriter.writerow(fields)
+
+        # Collect all rows first
+        rows = []
+
         for track_id in track_model.trackIDs(True):
 
-            total_distance_c, max_speed_c, median_speed_c, mean_speed_c, diffusion_coefficient_c, diffusion_coefficient_ext_c = get_track_attributes(track_model, track_id)
+            total_distance_c, max_speed_c, median_speed_c, mean_speed_c, diffusion_coefficient_c, diffusion_coefficient_ext_c = get_track_attributes(
+                track_model, track_id)
 
             nr_spots_in_all_tracks += len(track_model.trackSpots(track_id))
 
@@ -373,13 +382,52 @@ def execute_trackmate_in_Fiji(
             else:
                 confinement_ratio = None
 
-            # Write the record for each track
-            csvwriter.writerow([recording_name, track_id, track_label, nr_spots, nr_gaps, longest_gap, duration,
-                                x, y, displacement,
-                                max_speed, med_speed, mean_speed,
-                                max_speed_c, median_speed_c, mean_speed_c,
-                                diffusion_coefficient_c, diffusion_coefficient_ext_c,
-                                total_distance_c, confinement_ratio])
+            # Add the row to the list (same as your write)
+            rows.append([recording_name,                 # 0
+                         track_id,                       # 1
+                         track_label,                    # 2
+                         nr_spots,                       # 3
+                         nr_gaps,                        # 4
+                         longest_gap,                    # 5
+                         duration,                       # 6
+                         x,                              # 7
+                         y,                              # 8
+                         displacement,                   # 9
+                         max_speed,                      # 10
+                         med_speed,                      # 11
+                         mean_speed,                     # 12
+                         max_speed_c,                    # 13
+                         median_speed_c,                 # 14
+                         mean_speed_c,                   # 15
+                         diffusion_coefficient_c,        # 16
+                         diffusion_coefficient_ext_c,    # 17
+                         total_distance_c,               # 18
+                         confinement_ratio])             # 19
+
+        # Sort rows deterministically on selected columns
+        rows.sort(key=lambda r: (
+            r[0],   # Recording Name
+            r[3],   # Number of Spots
+            r[4],   # Number of Gaps
+            r[5],   # Longest Gap
+            r[6],   # Track Duration
+            r[7],   # Track X Location
+            r[8],   # Track Y Location
+            r[9],   # Track Displacement
+            r[10],  # Track Max Speed
+            r[11],  # Track Median Speed
+            r[16],  # Diffusion Coefficient
+            r[17],  # Diffusion Coefficient Ext
+            r[18],  # Total Distance
+            r[19]   # Confinement Ratio
+        ))
+
+
+        # Write sorted rows
+        for i, row in enumerate(rows):
+            row[1] = i
+            row[2] = "Track-" + str(i)
+            csvwriter.writerow(row)
 
     model.getLogger().log('Found ' + str(model.getTrackModel().nTracks(True)) + ' tracks.')
 
