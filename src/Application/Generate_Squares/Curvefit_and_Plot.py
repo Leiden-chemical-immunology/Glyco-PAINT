@@ -160,6 +160,14 @@ if __name__ == "__main__":
     tau, r_squared = curve_fit_and_plot(df, plot_max_x=1, plot_title='Example Plot', plot_to_screen=True)
     print(f'Tau: {tau}, R²: {r_squared}')
 
+    data = {
+        "Track Duration": [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.65, 0.8, 1.1, 1.951, 2.251, 3.101, 5.702],
+        "Frequency":  [2.0, 2.0, 1.0, 4.0, 2.0, 1.0, 4.0, 1.0, 1.0, 2.0, 3.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    }
+
+    df = pd.DataFrame(data)
+    tau, r_squared = curve_fit_and_plot(df, plot_max_x=1, plot_title='Example Plot', plot_to_screen=True)
+    print(f'Tau: {tau}, R²: {r_squared}')
 
     df_tracks = df_tracks_of_experiment = pd.read_csv('/Users/hans/Downloads/All Tracks.csv')
     histdata = compile_duration(df_tracks)
