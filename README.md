@@ -3,8 +3,7 @@
 Glyco-PAINT is a research method to study interactions of glycans on lectins on live cells. The Glyco-PAINT Application Processing Pipeline is a software solution to process and analyse experimental results.
 
 ## Reference
-The software and selected research results are described in:  Steuten, K., Bakker, J., Doelman, W.  et al. Subcellular glycan-mannose receptor binding kinetics correlate with myeloid cell function. <img width="468" height="99" alt="image" src="https://github.com/user-attachments/assets/c194cd32-e270-4dbe-b966-6a1b03253464" />
-.  doi: https://doi.org/10.1101/2025.01.24.634682 [![DOI](https://img.shields.io/badge/bioRxiv-10.1101%2F2025.01.24.634682-blue)](https://doi.org/10.1101/2025.01.24.634682)
+The software and selected research results are described in:  Steuten, K., Bakker, J., Doelman, W.  et al. Subcellular glycan-mannose receptor binding kinetics correlate with myeloid cell function.  doi: https://doi.org/10.1101/2025.01.24.634682 [![DOI](https://img.shields.io/badge/bioRxiv-10.1101%2F2025.01.24.634682-blue)](https://doi.org/10.1101/2025.01.24.634682)
 
 The Pipeline, presented here, is a research application to extract information from the GlycoPaint recordings. The pipeline is a collection of Python and R scripts and depends heavily on the Glyco-PAINT method, Fiji and TrackMate.
 
