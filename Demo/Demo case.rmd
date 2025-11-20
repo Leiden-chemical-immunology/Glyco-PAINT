@@ -175,7 +175,7 @@ green_control <- "grey"
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
-# A set of functions to generate information for the signifivance bars
+# A set of functions to perform significance testing on derived parameters using ANOVA and Tukey HSD testing
 
 create_significance_table <- function(data_to_analyse, parameter, group_factor) {
   
@@ -258,7 +258,7 @@ get_significance <- function(significance_table, group1, group2) {
 
 ```{r , echo=FALSE}
 
-# Here read in the data, using the root_directory you have previouslkuy defined
+# Here read in the data, using the root_directory you have previously defined
 
 data <- read_data(root_directory)
 
