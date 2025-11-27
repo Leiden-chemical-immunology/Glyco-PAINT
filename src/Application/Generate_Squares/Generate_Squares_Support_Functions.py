@@ -216,7 +216,11 @@ def extra_constraints_on_tracks_for_tau_calculation(df_tracks_in_square):
 
 
 def create_unique_key_for_tracks(df):
-    df['Unique Key'] = df['Ext Recording Name'] + ' - ' + df['Track Label'].str.split('_').str[1]
+    df['Unique Key'] = (
+        df['Ext Recording Name']
+        + ' - '
+        + df['Track Label'].str.split(r'[-_]').str[1]
+    )
     df.set_index('Unique Key', inplace=True, drop=False)
 
     # Reorder the columns
